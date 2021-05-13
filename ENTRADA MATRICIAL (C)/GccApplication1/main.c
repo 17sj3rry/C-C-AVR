@@ -44,7 +44,7 @@ int main(void)
 		//CODIGO DE SALIDA = Parte Movil + Parte no movil	
 		
 				PORTB = codread;								//Sacamos el codigo
-				_delay_ms(50);									//El atmega se hace pendejo 200ms
+				_delay_ms(50);									//El atmega se retarda 50ms
 				in_code = PINB;									//Leemos el codigo que se metio
 				
 				//-----------------------------------------------------
