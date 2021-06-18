@@ -1,0 +1,303 @@
+
+GccApplication2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000004  00800100  000001e2  00000256  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001e2  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  0000025a  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000028c  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000058  00000000  00000000  000002cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000008ae  00000000  00000000  00000324  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000764  00000000  00000000  00000bd2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000437  00000000  00000000  00001336  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000b8  00000000  00000000  00001770  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003ee  00000000  00000000  00001828  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000024b  00000000  00000000  00001c16  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000038  00000000  00000000  00001e61  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 4b 00 	jmp	0x96	; 0x96 <__vector_1>
+   8:	0c 94 7c 00 	jmp	0xf8	; 0xf8 <__vector_2>
+   c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  10:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  14:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  18:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  1c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  20:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  24:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  28:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  2c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  30:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  34:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  38:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  3c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  40:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  44:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  48:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  4c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  50:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  54:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  58:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  5c:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  60:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+  64:	0c 94 49 00 	jmp	0x92	; 0x92 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e2 ee       	ldi	r30, 0xE2	; 226
+  7c:	f1 e0       	ldi	r31, 0x01	; 1
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a4 30       	cpi	r26, 0x04	; 4
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+  8a:	0e 94 ad 00 	call	0x15a	; 0x15a <main>
+  8e:	0c 94 ef 00 	jmp	0x1de	; 0x1de <_exit>
+
+00000092 <__bad_interrupt>:
+  92:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000096 <__vector_1>:
+#include "PWM/PWM.h"
+
+int Pos = 100;
+volatile unsigned int incre = 100;
+
+ISR(INT0_vect){							//Detectamos la interrupcion para bajar el pulso
+  96:	1f 92       	push	r1
+  98:	0f 92       	push	r0
+  9a:	0f b6       	in	r0, 0x3f	; 63
+  9c:	0f 92       	push	r0
+  9e:	11 24       	eor	r1, r1
+  a0:	2f 93       	push	r18
+  a2:	3f 93       	push	r19
+  a4:	8f 93       	push	r24
+  a6:	9f 93       	push	r25
+	cli();								//Inicialmente se desactivan para ejecutar el codigo secuencial
+  a8:	f8 94       	cli
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  aa:	83 ed       	ldi	r24, 0xD3	; 211
+  ac:	90 e3       	ldi	r25, 0x30	; 48
+  ae:	01 97       	sbiw	r24, 0x01	; 1
+  b0:	f1 f7       	brne	.-4      	; 0xae <__vector_1+0x18>
+  b2:	00 c0       	rjmp	.+0      	; 0xb4 <__vector_1+0x1e>
+  b4:	00 00       	nop
+	_delay_ms(50);						//Delay antidebounce
+	Pos = Pos - incre;					//Pos decrementa y se guarda en si mismo
+  b6:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+  ba:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+  be:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <Pos>
+  c2:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <Pos+0x1>
+  c6:	82 1b       	sub	r24, r18
+  c8:	93 0b       	sbc	r25, r19
+  ca:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <Pos+0x1>
+  ce:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <Pos>
+	if(Pos <= 100){						//Si Pos baja menos del 100, entonces le devuelve el valor minimo
+  d2:	85 36       	cpi	r24, 0x65	; 101
+  d4:	91 05       	cpc	r25, r1
+  d6:	34 f4       	brge	.+12     	; 0xe4 <__vector_1+0x4e>
+		Pos = 100;						//Osea wey, no va a bajar mas de 100, ¿apoco crees que existe un pulso de -100 para pwm?
+  d8:	84 e6       	ldi	r24, 0x64	; 100
+  da:	90 e0       	ldi	r25, 0x00	; 0
+  dc:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <Pos+0x1>
+  e0:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <Pos>
+	}									//¡Piensa, Mark, piensa!
+	sei();								//Y activamos las interrupciones
+  e4:	78 94       	sei
+}
+  e6:	9f 91       	pop	r25
+  e8:	8f 91       	pop	r24
+  ea:	3f 91       	pop	r19
+  ec:	2f 91       	pop	r18
+  ee:	0f 90       	pop	r0
+  f0:	0f be       	out	0x3f, r0	; 63
+  f2:	0f 90       	pop	r0
+  f4:	1f 90       	pop	r1
+  f6:	18 95       	reti
+
+000000f8 <__vector_2>:
+
+ISR(INT1_vect){							//Lo mismo que arriba nomas que ahora para aumentar el ancho del pulso
+  f8:	1f 92       	push	r1
+  fa:	0f 92       	push	r0
+  fc:	0f b6       	in	r0, 0x3f	; 63
+  fe:	0f 92       	push	r0
+ 100:	11 24       	eor	r1, r1
+ 102:	2f 93       	push	r18
+ 104:	3f 93       	push	r19
+ 106:	8f 93       	push	r24
+ 108:	9f 93       	push	r25
+	cli();
+ 10a:	f8 94       	cli
+ 10c:	83 ed       	ldi	r24, 0xD3	; 211
+ 10e:	90 e3       	ldi	r25, 0x30	; 48
+ 110:	01 97       	sbiw	r24, 0x01	; 1
+ 112:	f1 f7       	brne	.-4      	; 0x110 <__vector_2+0x18>
+ 114:	00 c0       	rjmp	.+0      	; 0x116 <__vector_2+0x1e>
+ 116:	00 00       	nop
+	_delay_ms(50);
+	Pos = Pos + incre;
+ 118:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 11c:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 120:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <Pos>
+ 124:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <Pos+0x1>
+ 128:	82 0f       	add	r24, r18
+ 12a:	93 1f       	adc	r25, r19
+ 12c:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <Pos+0x1>
+ 130:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <Pos>
+	if(Pos >= 2000){					//Y no pasa de 2000(2ms)
+ 134:	80 3d       	cpi	r24, 0xD0	; 208
+ 136:	97 40       	sbci	r25, 0x07	; 7
+ 138:	34 f0       	brlt	.+12     	; 0x146 <__vector_2+0x4e>
+		Pos = 2000;
+ 13a:	80 ed       	ldi	r24, 0xD0	; 208
+ 13c:	97 e0       	ldi	r25, 0x07	; 7
+ 13e:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <Pos+0x1>
+ 142:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <Pos>
+	}
+	sei();
+ 146:	78 94       	sei
+}
+ 148:	9f 91       	pop	r25
+ 14a:	8f 91       	pop	r24
+ 14c:	3f 91       	pop	r19
+ 14e:	2f 91       	pop	r18
+ 150:	0f 90       	pop	r0
+ 152:	0f be       	out	0x3f, r0	; 63
+ 154:	0f 90       	pop	r0
+ 156:	1f 90       	pop	r1
+ 158:	18 95       	reti
+
+0000015a <main>:
+
+int main(void)
+{
+	PORTD |=(1<<PIND3)|(1<<PIND2);
+ 15a:	8b b1       	in	r24, 0x0b	; 11
+ 15c:	8c 60       	ori	r24, 0x0C	; 12
+ 15e:	8b b9       	out	0x0b, r24	; 11
+	EICRA|=(1<<ISC11)|(1<<ISC01);		//HABILITACION DE PINES DE INTERRUPCION POR TRANSICION NEGATIVA
+ 160:	e9 e6       	ldi	r30, 0x69	; 105
+ 162:	f0 e0       	ldi	r31, 0x00	; 0
+ 164:	80 81       	ld	r24, Z
+ 166:	8a 60       	ori	r24, 0x0A	; 10
+ 168:	80 83       	st	Z, r24
+	EIMSK|=(1<<INT1)|(1<<INT0);
+ 16a:	8d b3       	in	r24, 0x1d	; 29
+ 16c:	83 60       	ori	r24, 0x03	; 3
+ 16e:	8d bb       	out	0x1d, r24	; 29
+	sei();
+ 170:	78 94       	sei
+
+    while (1) 
+    {	
+		SERVO_init_D(Pos,5);			//SERVO_init_X(y,z)
+ 172:	65 e0       	ldi	r22, 0x05	; 5
+ 174:	70 e0       	ldi	r23, 0x00	; 0
+ 176:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <Pos>
+ 17a:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <Pos+0x1>
+ 17e:	0e 94 c2 00 	call	0x184	; 0x184 <SERVO_init_D>
+ 182:	f7 cf       	rjmp	.-18     	; 0x172 <main+0x18>
+
+00000184 <SERVO_init_D>:
+ *  Author: pablo
+ */ 
+#include "PWM.h"
+#include <avr/io.h>
+void SERVO_init_D( int Ang, int Out){
+	DDRD |=(1<<Out);
+ 184:	4a b1       	in	r20, 0x0a	; 10
+ 186:	21 e0       	ldi	r18, 0x01	; 1
+ 188:	30 e0       	ldi	r19, 0x00	; 0
+ 18a:	02 c0       	rjmp	.+4      	; 0x190 <SERVO_init_D+0xc>
+ 18c:	22 0f       	add	r18, r18
+ 18e:	33 1f       	adc	r19, r19
+ 190:	6a 95       	dec	r22
+ 192:	e2 f7       	brpl	.-8      	; 0x18c <SERVO_init_D+0x8>
+ 194:	42 2b       	or	r20, r18
+ 196:	4a b9       	out	0x0a, r20	; 10
+	
+	TCCR1B |= (1<<CS10); 
+ 198:	e1 e8       	ldi	r30, 0x81	; 129
+ 19a:	f0 e0       	ldi	r31, 0x00	; 0
+ 19c:	40 81       	ld	r20, Z
+ 19e:	41 60       	ori	r20, 0x01	; 1
+ 1a0:	40 83       	st	Z, r20
+	
+	TIFR1 &=~(0<<TOV1); //APagamos TOV1 para que no cuente
+ 1a2:	46 b3       	in	r20, 0x16	; 22
+ 1a4:	46 bb       	out	0x16, r20	; 22
+	TCNT1 = 65536 - Ang; //Le metemos el tiempo que queremos (maximo 65,535)
+ 1a6:	44 27       	eor	r20, r20
+ 1a8:	55 27       	eor	r21, r21
+ 1aa:	48 1b       	sub	r20, r24
+ 1ac:	59 0b       	sbc	r21, r25
+ 1ae:	50 93 85 00 	sts	0x0085, r21	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+ 1b2:	40 93 84 00 	sts	0x0084, r20	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+	PORTD |= (1<<Out); //Y ENCIENDE EL PUERTO PD5
+ 1b6:	4b b1       	in	r20, 0x0b	; 11
+ 1b8:	42 2b       	or	r20, r18
+ 1ba:	4b b9       	out	0x0b, r20	; 11
+	while(!(TIFR1 &(1<<TOV1))); //Mientras TOV1 = 0, QUEDATE AHI Y CUENTA
+ 1bc:	b0 9b       	sbis	0x16, 0	; 22
+ 1be:	fe cf       	rjmp	.-4      	; 0x1bc <SERVO_init_D+0x38>
+		
+	
+	
+	//UNA VEZ SALE DE AQUI(TOV1 = 1)
+	TIFR1 &=~(0<<TOV1);//Apagamos TOV1 para que no cuente
+ 1c0:	36 b3       	in	r19, 0x16	; 22
+ 1c2:	36 bb       	out	0x16, r19	; 22
+	TCNT1 = 45535 + Ang;//Le metemos el tiempo que le falte para 20ms (50hz)
+ 1c4:	81 52       	subi	r24, 0x21	; 33
+ 1c6:	9e 44       	sbci	r25, 0x4E	; 78
+ 1c8:	90 93 85 00 	sts	0x0085, r25	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+ 1cc:	80 93 84 00 	sts	0x0084, r24	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+	PORTD &=~ (1<<Out); //Y EAPAGA EL PUERTO PD5
+ 1d0:	8b b1       	in	r24, 0x0b	; 11
+ 1d2:	20 95       	com	r18
+ 1d4:	28 23       	and	r18, r24
+ 1d6:	2b b9       	out	0x0b, r18	; 11
+	while(!(TIFR1 &(1<<TOV1))); //Mientras TOV1 = 0, QUEDATE AHI Y CUENTA
+ 1d8:	b0 9b       	sbis	0x16, 0	; 22
+ 1da:	fe cf       	rjmp	.-4      	; 0x1d8 <SERVO_init_D+0x54>
+}
+ 1dc:	08 95       	ret
+
+000001de <_exit>:
+ 1de:	f8 94       	cli
+
+000001e0 <__stop_program>:
+ 1e0:	ff cf       	rjmp	.-2      	; 0x1e0 <__stop_program>
